@@ -13,7 +13,12 @@ public class Maximum {
 		return max; // returns the largest value
 	}
 
-	public static <T> void printMax(T a, T b, T c, T max) {
-		System.out.printf("the Max of the following %s , %s and %s is %s\n", a, b, c, max);
+	public static void main(String[] args) {
+		// Calling method And passing values
+		System.out.printf("Max of %d, %d and %d is %d\n\n", 5, 6, 7, maximum(5, 6, 7));
+		System.out.printf("Max of %.1f,%.1f and %.1f is %.1f\n\n", 5.7, 6.8, 7.9, maximum(5.7f, 6.8f, 7.9f));
+		System.out.printf("Max of %s, %s and %s is %s\n", "Mango", "orange", "Banana",
+				maximum("Mango", "orange", "Banana"));
 	}
+
 }
