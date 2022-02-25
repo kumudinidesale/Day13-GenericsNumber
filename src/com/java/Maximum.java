@@ -1,24 +1,34 @@
 package com.java;
 
-public class Maximum {
-	public static String maxString(String a, String b, String c) {
-		String max = a;// assume a is initially largest
-		if (b.compareTo(max) > 0)
-			max = b;
-		if (c.compareTo(max) > 0)
-			max = c;
+public class Maximum<T extends Comparable<T>> {
+	private T x, y, z;
 
-		System.out.println("First Number= " + a);
-		System.out.println("Sec Number= " + b);
-		System.out.println("Thrird Number= " + c);
+	public Maximum(T x, T y, T z) {
+		super();
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+
+	public static <T extends Comparable<T>> T testMaximum(T... value) {
+		T max = value[0]; // assume a is initially the largest
+
+		for (int i = 1; i < value.length; i++) {
+			if (value[i].compareTo(max) > 0) {
+				max = value[i];
+			}
+		}
 		System.out.println("Maximum Value is= " + max);
-		return max;
+		return max; // returns the largest value
 	}
 
 	// main method
 	public static void main(String[] args) {
-		// Calling method with Integer argument
-		Maximum.maxString("Mango", "orange", "Banana");
-	}
+		// Calling method And passing values
+		Maximum.<Integer>testMaximum(6, 7, 8, 9);
 
+		Maximum.<Float>testMaximum(5.6f, 6.7f, 7.8f, 8.9f);
+
+		Maximum.<String>testMaximum("Mango", "orange", "Banana", "Apple", "Grapes");
+	}
 }
