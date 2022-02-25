@@ -1,6 +1,15 @@
 package com.java;
 
-public class Maximum {
+public class Maximum<T extends Comparable<T>> {
+	T a, b, c;
+
+	// constructor test maximum
+	public Maximum(T a, T b, T c) {
+		this.a = a;
+		this.b = b;
+		this.c = c;
+	}
+
 	public static <T extends Comparable<T>> T maximum(T a, T b, T c) {
 		T max = a; // assume a is initially the largest
 
