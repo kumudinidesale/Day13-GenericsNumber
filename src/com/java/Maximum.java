@@ -1,31 +1,38 @@
 package com.java;
 
+//generic class
 public class Maximum<T extends Comparable<T>> {
-	private T x, y, z;
-
-	public Maximum(T x, T y, T z) {
-		super();
-		this.x = x;
-		this.y = y;
-		this.z = z;
-	}
-
+	/*
+	 * This generic method is used to find max among more than 3 variables of
+	 * Generic Type
+	 */
+	@SafeVarargs
 	public static <T extends Comparable<T>> T testMaximum(T... value) {
 		T max = value[0]; // assume a is initially the largest
-
+		// checking max value
 		for (int i = 1; i < value.length; i++) {
 			if (value[i].compareTo(max) > 0) {
 				max = value[i];
 			}
 		}
-		System.out.println("Maximum Value is= " + max);
+		System.out.println("given values are : ");
+		for (int i = 0; i < value.length; i++) {
+			System.out.println(value[i]);
+		}
+		printMax(max);// internally calling printMax generic method
 		return max; // returns the largest value
 	}
 
+	// generic method to print the max value
+	public static <T> void printMax(T max) {
+		System.out.println("\nMaximum Value is= " + max + "\n");
+	}
+
 	// main method
+
 	public static void main(String[] args) {
 		// Calling method And passing values
-		Maximum.<Integer>testMaximum(6, 7, 8, 9);
+		Maximum.<Integer>testMaximum(6, 7, 8, 9, 54, 76, 43);
 
 		Maximum.<Float>testMaximum(5.6f, 6.7f, 7.8f, 8.9f);
 
